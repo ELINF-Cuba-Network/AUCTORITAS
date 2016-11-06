@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hello AngularJS</title>
+    <!--<link href="css/angular-bootstrap.css" rel="stylesheet">-->
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp">
+<div class="container">
+    <h1>Greeting</h1>
+    <div ng-controller="myController" ng-cloak class="ng-cloak">
+        <!--<p>The ID is {{greeting.id}}</p>-->
+        <!--<p>The content is {{greeting.content}}</p>-->
+        <button ng-click="selectDS()">Select Datasource</button>
+
+        <!--<button ng-click="insertS()">Insertar</button>-->
+        <!--<button ng-click="searchS()">Buscar</button>-->
+        <br>
+      <div class="datasources" ng-show="datasources">
+
+        Local Datasources:
+        <table>
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Actions</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="a in datasourcename">
+                <td>{{a}}</td>
+                <!--<td><button ng-click="eliminarS(a.uri)">Delete</button>-->
+                 <td>   <button ng-click ="addAuthor($index)">Add Personal Author</button>
+                    <button ng-click ="deleteAuthor($index)">Delete Personal Author</button>
+                    <!--<button ng-click ="updateAuthor($index)">Update Personal Author</button>-->
+                    <button ng-click ="findAuthor($index)">Find Personal Author</button>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+
+       <div class="addAuthor" ng-show="addauthor">
+
+           <table> <tr>
+               <td>URI: </td><td><input type="text" ng-model="iuri"><br/></td></tr>
+               <tr> <td>Name: </td>   <td><input type="text" ng-model="iname"><br/></td></tr>
+               <tr><td>Lastname: </td> <td><input type="text" ng-model="ilastname"><br/></td></tr>
+               <tr><td>Authority: </td>  <td><input type="text" ng-model="iauthority"><br/></td></tr>
+           </table>
+           <button ng-click="add(datasource)">Add</button>
+
+       </div>
+        <div class="findAuthor" ng-show="findauthor">
+
+            <table> <tr>
+                <td>URI: </td><td><input type="text" ng-model="iuri"> <br/></td></tr>
+                <tr> <td>Name: </td>   <td><input type="text" ng-model="iname"> <br/></td></tr>
+                <tr><td>Lastname: </td> <td><input type="text" ng-model="ilastname"> <br/></td></tr>
+                <tr><td>Authority: </td>  <td><input type="text" ng-model="iauthority"> <br/></td></tr>
+            </table>
+            <button ng-click="find(datasource)">find</button>
+
+            <div class="authorresp" ng-show="authorresp">
+                El resultado de la busqueda es:
+                <table>
+                    <thead>
+                    <tr>
+                        <td>URI</td>
+                        <td>Name</td>
+                        <td>Lastname</td>
+                        <td>Authority</td>
+                        <td>Actions</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="w in findeddata">
+                        <td>{{w.uri}}</td>
+                        <td>{{w.name}}</td>
+                        <td>{{w.lastname}}</td>
+                        <td>{{w.authority}}</td>
+                        <td><button ng-click="deleteAuthor3(datasource,w)">Delete</button></td>
+                        <td><button ng-click="updateAuthor2(datasource,w)">Update</button></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="update2" ng-show="updateauthor2">
+                <table>  <tr>     <td>New URI: </td><td><input type="text" ng-model="inewuri2"><br/></td></tr>
+                    <tr> <td>New Name: </td>   <td><input type="text" ng-model="iname2"><br/></td></tr>
+                    <tr><td>New Lastname: </td> <td><input type="text" ng-model="ilastname2"><br/></td></tr>
+                    <tr><td>New Authority: </td>  <td><input type="text" ng-model="iauthority2"><br/></td></tr>
+                </table>
+                <button ng-click="update3(datasource,authorObject)">Update</button>
+                <button ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+        <div class="deleteAuthor2" ng-show="deleteauthor">
+            <table> <tr>
+                <td>URI: </td><td><input type="text" ng-model="iuri"><br/></td></tr>
+                </table>
+            <button ng-click ="deleteAuthor2(datasource)">Delete</button>
+        </div>
+        <!--<div class="updateAuthor" ng-show="updateauthor">-->
+
+            <!--<table> <tr>-->
+                <!--<td>URI (*): </td><td><input type="text" ng-model="iuri"><br/></td></tr>-->
+                <!--<td>New URI: </td><td><input type="text" ng-model="inewuri"><br/></td></tr>-->
+                <!--<tr> <td>New Name: </td>   <td><input type="text" ng-model="iname"><br/></td></tr>-->
+                <!--<tr><td>New Lastname: </td> <td><input type="text" ng-model="ilastname"><br/></td></tr>-->
+                <!--<tr><td>New Authority: </td>  <td><input type="text" ng-model="iauthority"><br/></td></tr>-->
+            <!--</table>-->
+            <!--<button ng-click="update(datasource)">Update</button>-->
+
+        </div>
+
+
+    <div class="insert" ng-show="insert">
+      <table> <tr>
+          <td>URI: </td><td><input type="text" ng-model="uri"><br/></td></tr>
+          <tr> <td>Name: </td>   <td><input type="text" ng-model="name"><br/></td></tr>
+          <tr><td>Lastname: </td> <td><input type="text" ng-model="lastname"><br/></td></tr>
+          <tr><td>Authority: </td>  <td><input type="text" ng-model="authority"><br/></td></tr>
+          </table>
+        <button ng-click="insertService">Get Service</button>
+
+    </div>
+
+        <div class="buscar" ng-show="buscar">
+            Nombre:<input type="text" ng-model="fname" value="Flavia"><br/>
+            Apellidos: <input type="text" ng-model="flastname" value="Gonzalez"><br/>
+
+            <button ng-click="getService()">Get Service</button>
+
+
+            El resultado del servicio es:
+            <table>
+                <thead>
+                <tr>
+                    <td>URI</td>
+                    <td>Name</td>
+                    <td>Lastname</td>
+                    <td>Actions</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="w in result">
+                    <td>{{w.uri}}</td>
+                    <td>{{w.name}}</td>
+                    <td>{{w.lastname}}</td>
+                    <td><button ng-click="eliminarS($index)">Delete</button></td>
+                </tr>
+                </tbody>
+
+            </table>
+            <!--<div ng-repeat="w in result">-->
+                <!--{{w.uri}}    nombre {{w.lastname}}-->
+
+            <!--</div>-->
+        </div>
+    </div>
+
+</div>
+<script src="js/angular-bootstrap.js" type="text/javascript"></script>
+<script src="js/jj.js"></script>
+</body>
+</html>

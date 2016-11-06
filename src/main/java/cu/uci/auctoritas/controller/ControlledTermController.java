@@ -1,0 +1,28 @@
+package cu.uci.auctoritas.controller;
+
+import cu.uci.auctoritas.domain.AuthorizedTerm;
+import cu.uci.auctoritas.service.ControledTermsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+/**
+ * Created by bichos on 10/05/16.
+ */
+@RestController
+@RequestMapping("/api/term")
+public class ControlledTermController {
+    @Autowired
+    private ControledTermsService controledTermsService;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<AuthorizedTerm> getAuthorizedTerm(@RequestParam String term, @RequestParam String language, @RequestParam(required = false) String vocabulary){
+        term = "\""+term+"\"";
+        return controledTermsService.getAuthorizedTerms(term, language, vocabulary);
+    }
+
+}
