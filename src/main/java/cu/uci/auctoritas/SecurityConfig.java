@@ -1,8 +1,6 @@
 package cu.uci.auctoritas;
 
-/**
- * Created by bichos on 31/05/16.
- */
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;

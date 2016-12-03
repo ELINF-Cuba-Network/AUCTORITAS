@@ -1,8 +1,6 @@
 package cu.uci.auctoritas.domain;
 
-/**
- * Created by bichos on 3/06/16.
- */
+
 public class UserInfo {
     private String username;
     private String password;

@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * Created by bichos on 18/05/16.
- */
+
 @RestController
 @RequestMapping("api/localauthors")
 public class LocalCorporateAuthorsController {

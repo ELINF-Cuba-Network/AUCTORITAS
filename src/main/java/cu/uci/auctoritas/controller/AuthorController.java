@@ -15,9 +15,7 @@ import javax.print.attribute.standard.MediaName;
 import java.awt.*;
 import java.util.List;
 
-/**
- * Created by bichos on 7/05/16.
- */
+
 @RestController
 @RequestMapping("/api/author")
 public class AuthorController {

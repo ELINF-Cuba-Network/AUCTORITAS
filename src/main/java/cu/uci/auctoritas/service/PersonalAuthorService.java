@@ -11,9 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 @Service
 public class PersonalAuthorService {
 

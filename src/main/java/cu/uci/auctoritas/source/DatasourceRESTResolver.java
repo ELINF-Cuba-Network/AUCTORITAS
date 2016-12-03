@@ -16,9 +16,7 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 public class DatasourceRESTResolver<T> implements DatasourceResolver<T> {
 
     @Override

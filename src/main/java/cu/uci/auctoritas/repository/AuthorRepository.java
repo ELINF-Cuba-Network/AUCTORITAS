@@ -11,9 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by bichos on 19/05/16.
- */
+
 @Repository
 public class AuthorRepository {
     @Autowired

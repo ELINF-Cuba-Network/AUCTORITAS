@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by bichos on 17/05/16.
- */
+
 @RestController
 @RequestMapping(value = "api/datasource")
 public class DataSourceController {

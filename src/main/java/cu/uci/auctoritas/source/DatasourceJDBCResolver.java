@@ -11,9 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 import java.util.List;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 public class DatasourceJDBCResolver<T> implements DatasourceResolver<T> {
 
     @Override

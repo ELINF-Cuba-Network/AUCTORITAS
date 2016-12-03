@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 @XmlRootElement(name = "corpo")
 @Entity
 public class CorporateAuthor {

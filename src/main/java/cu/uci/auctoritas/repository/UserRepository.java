@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by bichos on 14/05/16.
- */
+
 @Repository
 public class UserRepository {
 

@@ -5,9 +5,7 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 @Entity
 @XmlRootElement(name = "author", namespace = "aaa")
 public class PersonalAuthor {

@@ -8,9 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 public class CorporativeAuthorRowMapper implements EntityMapper<CorporateAuthor> {
 
     final String FIELD_ORGANIZATION= "organization";
