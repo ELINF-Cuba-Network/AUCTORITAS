@@ -32,12 +32,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="personalauthor.html">Auctoritas 2.0</a>
+                <label class="navbar-brand">AUCTORITAS</label>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="personalauthor.html">Home</a></li>
-                    <li><a href="#about">About</a></li>
                     <li><a href="usermanagement.html">User Management</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign out? <span class="caret"></span></a>
@@ -52,8 +51,7 @@
 
         <ul class="nav nav-tabs" role="tablist">
             <li class="active" role="presentation">
-                <a href="personalauthor.html">
-                    Manage Personal Authors</a>
+                <a href="personalauthor.html">Manage Personal Authors</a>
             </li>
             <li role="presentation">
                 <a href="corporateauthor.html">Manage Corporate Authors</a>
@@ -65,13 +63,9 @@
 
         <br />
         <button class="btn btn-primary" ng-click="selectDS()" type="button">Select Datasource</button>
-        <!--<button ng-click="selectDS()">Select Datasource</button>-->
-
-        <!--<button ng-click="insertS()">Insertar</button>-->
-        <!--<button ng-click="searchS()">Buscar</button>-->
         <br>
         <div class="datasources" ng-show="datasources">
-<br />
+            <br />
             Local Datasources:
             <table class="table table-striped">
                 <thead>
@@ -81,13 +75,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="a in datasourcename">
-                    <td>{{a}}</td>
-                    <!--<td><button ng-click="eliminarS(a.uri)">Delete</button>-->
+                <tr ng-repeat="name in datasourcename">
+                    <td>{{name}}</td>
                     <td>
-                        <button ng-click ="addAuthor($index)" class="btn btn-sm btn-info" type="button">Add Personal Author</button>
-                        <button ng-click ="findAuthor($index)" class="btn btn-sm btn-info" type="button">Find Personal Author</button>
-                        <button ng-click ="deleteAuthor($index)" class="btn btn-sm btn-danger" type="button">Delete Personal Author</button>
+                        <a ng-click ="addAuthor($index)" class="btn btn-sm btn-info" type="button">
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </a>
+                        <a ng-click ="findAuthor($index)" class="btn btn-sm btn-info" type="button">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                        <a ng-click ="deleteAuthor($index)" class="btn btn-sm btn-danger" type="button">
+                            <span class="glyphicon glyphicon-minus-sign"></span>
+                        </a>
                     </td>
                 </tr>
                 </tbody>
