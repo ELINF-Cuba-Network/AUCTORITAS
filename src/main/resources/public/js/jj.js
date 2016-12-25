@@ -117,6 +117,17 @@ angular.module('myApp', [])
                   
                     })
                 }
+                
+                $scope.reset = function () {
+                    alert('reset');
+                    $scope.formname=undefined;
+                    $scope.formlastname=undefined;
+                    $scope.formauthority=undefined;
+                    $scope.formuri=undefined;
+                    $scope.uformauthority=undefined;
+                    $scope.delformuri=undefined;
+                }
+                
                 $scope.deleteAuthor2=function(index)
                 { $scope.delformuri = $scope.delformuri==undefined ? "" : $scope.delformuri;
                     if ($scope.delformuri==""){
@@ -137,6 +148,9 @@ angular.module('myApp', [])
                         alert(a.event);
                     })
                 }
+                
+                
+                
                 $scope.updateauthor3=function(datasource,authorObject)
                 {if (($scope.uformname==undefined)&&($scope.uformlastname==undefined)&&($scope.uformauthority==undefined)&&($scope.uformnewuri==undefined)){
                     alert("Enter at least one element");
