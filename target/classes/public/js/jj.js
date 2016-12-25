@@ -119,7 +119,6 @@ angular.module('myApp', [])
                 }
                 
                 $scope.reset = function () {
-                    alert('reset');
                     $scope.formname=undefined;
                     $scope.formlastname=undefined;
                     $scope.formauthority=undefined;

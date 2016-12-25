@@ -241,3 +241,10 @@
 		color: #00aeef;
 	}
 
+	input.ng-invalid {
+		border: 1px solid #B02B2C;
+	}
+
+	input.ng-valid {
+		border: 1px solid #6BBA70;
+	}
