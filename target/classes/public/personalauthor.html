@@ -104,19 +104,12 @@
                     <div class="col-xs-4">
                         <label for="URI">URI</label><br />
                         <input name="URI" type="url" class="form-control" placeholder="URI" ng-model="formuri"  ng-required="true" />
-                        <span class="messages" ng-show="authorForm.$submitted || authorForm.URI.$touched">
-                          <span ng-show="authorForm.URI.$error.required">This field is required.</span>
-                        </span>
                     </div>
 
 
                     <div class="col-xs-4">
                         <label for="name">Name</label>
                         <input name="name" class="form-control" placeholder="Name" type="text" ng-model="formname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" ng-minlength="2" />
-                        <span class="messages" ng-show="authorForm.$submitted || authorForm.name.$touched || authorForm.name.$pattern">
-                        <span ng-show="authorForm.name.$error.required">This field is required.</span>
-                            <span ng-show="authorForm.name.$error.pattern">Enter a text.</span>
-                        </span>
                     </div>
                     <br />
                     <br>
@@ -126,21 +119,11 @@
                         <label for="lastname">Last name</label>
 
                         <input name="lastname" type="text" class="form-control" placeholder="Last name" ng-model="formlastname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" ng-minlength="2" />
-                        <span class="messages" ng-show="authorForm.$submitted || authorForm.lastname.$touched || authorForm.lastname.$pattern">
-                           <span ng-show="authorForm.lastname.$error.required">This field is required.</span>
-                           <span ng-show="authorForm.name.lastname.pattern">Enter a text.</span>
-                        </span>
                     </div>
-
-
 
                     <div class="col-xs-4">
                         <label for="authority">Authority</label><br />
                         <input name="authority" type="text" class="form-control" placeholder="Authority" ng-model="formauthority" ng-model-options="{ updateOn: 'blur' }" ng-required="true" ng-minlength="2" />
-
-                        <span class="messages" ng-show="authorForm.$submitted || authorForm.authority.$touched">
-                            <span ng-show="authorForm.authority.$error.required">This field is required.</span>
-                        </span>
                     </div>
                     <br />
                     <br />
@@ -154,6 +137,8 @@
                 </div>
             </form>
         </div>
+
+        <!-- FIND AUTHOR FORM -->
         <div class="findAuthor" ng-show="findauthor">
 
             <form name="findauthorForm" class="form-horizontal" novalidate>
@@ -168,9 +153,6 @@
                     <div class="col-xs-4">
                         <label for="name">Name</label>
                         <input name="name" class="form-control" placeholder="Name" type="text" ng-model="fformname" ng-model-options="{ updateOn: 'blur' }"  ng-pattern="/^[a-zA-Z\s]*$/"/>
-                     <span class="messages" ng-show="findauthorForm.name.$touched || findauthorForm.name.$pattern">
-          <span ng-show="findauthorForm.name.$error.pattern">Enter a text.</span>
-      </span>
                     </div>
                     <br />
                     <br>
@@ -180,23 +162,18 @@
                         <label for="lastname">Last name</label>
 
                         <input name="lastname" type="text" class="form-control" placeholder="Last name" ng-model="fformlastname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/"/>
-                    <span class="messages" ng-show="findauthorForm.lastname.$touched || findauthorForm.lastname.$pattern">
-          <span ng-show="findauthorForm.lastname.$error.pattern">Enter a text.</span>
-      </span>
                     </div>
 
 
                     <div class="col-xs-4">
                         <label for="authority">Authority</label><br />
                         <input name="authority" type="text" class="form-control" placeholder="Authority" ng-model="fformauthority" ng-model-options="{ updateOn: 'blur' }" />
-
                     </div>
                     <br />
                     <br />
                     <br />
                     <br />
                     <div class="col-xs-4">
-
                         <input type="submit" class="btn btn-sm btn-info" ng-click="findauthor2(datasource)" value="Find" ng-disabled="findauthorForm.$invalid"/>
                         <input type="reset" class="btn btn-sm btn-info" ng-click="reset(findauthorForm)" value="Clear" />
                     </div>
@@ -230,11 +207,8 @@
 
             </div>
             <div class="update2" ng-show="updateauthor2">
-
                 <form name="updateauthorForm" class="form-horizontal" novalidate>
                     <div class="form-group">
-
-
                         <div class="col-xs-4">
                             <label for="NewURI">New URI</label><br />
                             <input name="newURI" type="text" class="form-control" placeholder="New URI" ng-model="uformnewuri" ng-model-options="{ updateOn: 'blur' }" />
@@ -243,10 +217,6 @@
                         <div class="col-xs-4">
                             <label for="name">Name</label>
                             <input name="name" class="form-control" placeholder="Name" type="text" ng-model="uformname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/"  />
-                       <span class="messages" ng-show="updateauthorForm.name.$touched || updateauthorForm.name.$pattern">
-          <span ng-show="updateauthorForm.name.$error.pattern">Enter a text.</span>
-      </span>
-
                         </div>
                         <br />
                         <br>
@@ -256,23 +226,17 @@
                             <label for="lastname">Last name</label>
 
                             <input name="lastname" type="text" class="form-control" placeholder="Last name" ng-model="uformlastname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z]*$/" />
-                        <span class="messages" ng-show="updateauthorForm.lastname.$touched || updateauthorForm.lastname.$pattern">
-          <span ng-show="updateauthorForm.lastname.$error.pattern">Enter a text.</span>
-      </span>
                         </div>
-
 
                         <div class="col-xs-4">
                             <label for="authority">Authority</label><br />
                             <input name="authority" type="url" class="form-control" placeholder="Authority" ng-model="uformauthority" ng-model-options="{ updateOn: 'blur' }" ng-required="true"/>
-
                         </div>
                         <br />
                         <br />
                         <br />
                         <br />
                         <div class="col-xs-4">
-
                             <input type="submit" class="btn btn-sm btn-info" ng-click="updateauthor3(datasource,authorObject)" ng-disabled="updateauthorForm.$invalid" value="Update"/>
                             <input type="reset" class="btn btn-sm btn-info" ng-click="reset(updateauthorForm)" value="Clear" />
                             <input type="button" class="btn btn-sm btn-info" ng-click="cancel()" value="Cancel" >
@@ -283,24 +247,18 @@
         </div>
         <div class="deleteAuthor2" ng-show="deleteauthor">
             <form name="delform" class="form-horizontal">
-
-
                 <div class="col-xs-4">
                         <label for="URI">URI</label>
-
                         <input name="uri" class="form-control" type="url" ng-model="delformuri" ng-model-options="{ updateOn: 'blur' }" ng-required="true" />
-                        <span class="messages" ng-show="delform.$submitted || delform.uri.$touched">
-                            <span ng-show="delform.uri.$error.required">This field is required.</span>
-                        </span>
                     </div>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
                 <div class="col-xs-4">
-                <input type="submit" class="btn btn-sm btn-danger" ng-click="deleteAuthor2(datasource)" value="Delete" ng-disabled="delform.$invalid" />
-                <input type="reset" class="btn btn-sm btn-info" ng-click="reset(delform)" value="Clear" />
-                    </div>
+                    <input type="submit" class="btn btn-sm btn-danger" ng-click="deleteAuthor2(datasource)" value="Delete" ng-disabled="delform.$invalid" />
+                    <input type="reset" class="btn btn-sm btn-info" ng-click="reset(delform)" value="Clear" />
+                </div>
             </form>
 <br />
 
