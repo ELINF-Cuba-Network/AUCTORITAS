@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,53 +21,54 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <![endif]-->
-    </head>
-    <body ng-app="myApp">
+</head>
+<body ng-app="myApp">
 
 
-        <nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
 
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <label class="navbar-brand">AUCTORITAS</label>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="personalauthor.html">Home</a></li>
-                    <li><a href="usermanagement.html">User Management</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign out? <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/logout">Logout</a></li>
-                        </ul>
-                    </li>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <label class="navbar-brand">AUCTORITAS</label>
+    </div>
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="personalauthor.html">Home</a></li>
+            <li><a href="usermanagement.html">User Management</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Sign out? <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-        </nav>
-
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="active" role="presentation">
-                <a href="personalauthor.html">Manage Personal Authors</a>
-            </li>
-            <li role="presentation">
-                <a href="corporateauthor.html">Manage Corporate Authors</a>
             </li>
         </ul>
+    </div><!--/.nav-collapse -->
+    </div>
+</nav>
 
-        <div class="container">
-            <div ng-controller="myController" ng-cloak class="ng-cloak">
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active" role="presentation">
+        <a href="personalauthor.html">Manage Personal Authors</a>
+    </li>
+    <li role="presentation">
+        <a href="corporateauthor.html">Manage Corporate Authors</a>
+    </li>
+</ul>
 
-        <br />
+<div class="container">
+    <div ng-controller="myController" ng-cloak class="ng-cloak">
+
+        <br/>
         <button class="btn btn-primary" ng-click="selectDS()" type="button">Select Datasource</button>
         <br>
         <div class="datasources" ng-show="datasources">
-            <br />
+            <br/>
             Local Datasources:
             <table class="table table-striped">
                 <thead>
@@ -80,13 +81,13 @@
                 <tr ng-repeat="name in datasourcename">
                     <td>{{name}}</td>
                     <td>
-                        <a ng-click ="addAuthor($index)" class="btn btn-sm btn-info" type="button">
+                        <a ng-click="addAuthor($index)" class="btn btn-sm btn-info" type="button">
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </a>
-                        <a ng-click ="findAuthor($index)" class="btn btn-sm btn-info" type="button">
+                        <a ng-click="findAuthor($index)" class="btn btn-sm btn-info" type="button">
                             <span class="glyphicon glyphicon-search"></span>
                         </a>
-                        <a ng-click ="deleteAuthor($index)" class="btn btn-sm btn-danger" type="button">
+                        <a ng-click="deleteAuthor($index)" class="btn btn-sm btn-danger" type="button">
                             <span class="glyphicon glyphicon-minus-sign"></span>
                         </a>
                     </td>
@@ -102,37 +103,46 @@
                 <div class="form-group">
 
                     <div class="col-xs-4">
-                        <label for="URI">URI</label><br />
-                        <input name="URI" type="url" class="form-control" placeholder="URI" ng-model="formuri"  ng-required="true" />
+                        <label for="URI">URI</label><br/>
+                        <input name="URI" type="url" class="form-control" placeholder="URI" ng-model="formuri"
+                               ng-required="true"/>
                     </div>
 
 
                     <div class="col-xs-4">
                         <label for="name">Name</label>
-                        <input name="name" class="form-control" placeholder="Name" type="text" ng-model="formname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" ng-minlength="2" />
+                        <input name="name" class="form-control" placeholder="Name" type="text" ng-model="formname"
+                               ng-model-options="{ updateOn: 'blur' }" ng-required="true"
+                               ng-minlength="2"/>
                     </div>
-                    <br />
+                    <br/>
                     <br>
                     <br>
                     <br>
                     <div class="col-xs-4">
                         <label for="lastname">Last name</label>
 
-                        <input name="lastname" type="text" class="form-control" placeholder="Last name" ng-model="formlastname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/" ng-required="true" ng-minlength="2" />
+                        <input name="lastname" type="text" class="form-control" placeholder="Last name"
+                               ng-model="formlastname" ng-model-options="{ updateOn: 'blur' }"
+                               ng-required="true" ng-minlength="2"/>
                     </div>
 
                     <div class="col-xs-4">
-                        <label for="authority">Authority</label><br />
-                        <input name="authority" type="text" class="form-control" placeholder="Authority" ng-model="formauthority" ng-model-options="{ updateOn: 'blur' }" ng-required="true" ng-minlength="2" />
+                        <label for="authority">Authority</label><br/>
+                        <input name="authority" type="text" class="form-control" placeholder="Authority"
+                               ng-model="formauthority" ng-model-options="{ updateOn: 'blur' }" ng-required="true"
+                               ng-minlength="2"/>
                     </div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div class="col-xs-4">
 
-                        <input type="submit" class="btn btn-sm btn-info" ng-click="moreauthor(datasource)" value="Add" ng-disabled="authorForm.$invalid" />
-                        <input type="reset" class="btn btn-sm btn-info" ng-click="reset(authorForm)" ng-click="authorForm." value="Clear" name="resetAuthor"/>
+                        <input type="submit" class="btn btn-sm btn-info" ng-click="moreauthor(datasource)" value="Add"
+                               ng-disabled="authorForm.$invalid"/>
+                        <input type="reset" class="btn btn-sm btn-info" ng-click="reset(authorForm)"
+                               ng-click="authorForm." value="Clear" name="resetAuthor"/>
                     </div>
                 </div>
             </form>
@@ -146,36 +156,41 @@
 
 
                     <div class="col-xs-4">
-                        <label for="URI">URI</label><br />
-                        <input name="URI" type="url" class="form-control" placeholder="URI" ng-model="fformuri" ng-model-options="{ updateOn: 'blur' }" />
+                        <label for="URI">URI</label><br/>
+                        <input name="URI" type="url" class="form-control" placeholder="URI" ng-model="fformuri"
+                               ng-model-options="{ updateOn: 'blur' }"/>
                     </div>
 
                     <div class="col-xs-4">
                         <label for="name">Name</label>
-                        <input name="name" class="form-control" placeholder="Name" type="text" ng-model="fformname" ng-model-options="{ updateOn: 'blur' }"  ng-pattern="/^[a-zA-Z\s]*$/"/>
+                        <input name="name" class="form-control" placeholder="Name" type="text" ng-model="fformname"
+                               ng-model-options="{ updateOn: 'blur' }"/>
                     </div>
-                    <br />
+                    <br/>
                     <br>
                     <br>
                     <br>
                     <div class="col-xs-4">
                         <label for="lastname">Last name</label>
 
-                        <input name="lastname" type="text" class="form-control" placeholder="Last name" ng-model="fformlastname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/"/>
+                        <input name="lastname" type="text" class="form-control" placeholder="Last name"
+                               ng-model="fformlastname" ng-model-options="{ updateOn: 'blur' }"/>
                     </div>
 
 
                     <div class="col-xs-4">
-                        <label for="authority">Authority</label><br />
-                        <input name="authority" type="text" class="form-control" placeholder="Authority" ng-model="fformauthority" ng-model-options="{ updateOn: 'blur' }" />
+                        <label for="authority">Authority</label><br/>
+                        <input name="authority" type="text" class="form-control" placeholder="Authority"
+                               ng-model="fformauthority" ng-model-options="{ updateOn: 'blur' }"/>
                     </div>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div class="col-xs-4">
-                        <input type="submit" class="btn btn-sm btn-info" ng-click="findauthor2(datasource)" value="Find" ng-disabled="findauthorForm.$invalid"/>
-                        <input type="reset" class="btn btn-sm btn-info" ng-click="reset(findauthorForm)" value="Clear" />
+                        <input type="submit" class="btn btn-sm btn-info" ng-click="findauthor2(datasource)" value="Find"
+                               ng-disabled="findauthorForm.$invalid"/>
+                        <input type="reset" class="btn btn-sm btn-info" ng-click="reset(findauthorForm)" value="Clear"/>
                     </div>
                 </div>
             </form>
@@ -198,8 +213,12 @@
                         <td>{{w.name}}</td>
                         <td>{{w.lastname}}</td>
                         <td>{{w.authority}}</td>
-                        <td><button class="btn btn-sm btn-danger" ng-click="deleteAuthor3(datasource,w)">Delete</button></td>
-                        <td><button class="btn btn-sm btn-info" ng-click="updateAuthor2(datasource,w)">Update</button></td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" ng-click="deleteAuthor3(datasource,w)">Delete</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-info" ng-click="updateAuthor2(datasource,w)">Update</button>
+                        </td>
 
                     </tr>
                     </tbody>
@@ -210,36 +229,44 @@
                 <form name="updateauthorForm" class="form-horizontal" novalidate>
                     <div class="form-group">
                         <div class="col-xs-4">
-                            <label for="NewURI">New URI</label><br />
-                            <input name="newURI" type="text" class="form-control" placeholder="New URI" ng-model="uformnewuri" ng-model-options="{ updateOn: 'blur' }" />
+                            <label for="NewURI">New URI</label><br/>
+                            <input name="newURI" type="url" class="form-control" placeholder="New URI"
+                                   ng-model="authorObject.uri" ng-model-options="{ updateOn: 'blur' }" ng-required="true"/>
                         </div>
 
                         <div class="col-xs-4">
                             <label for="name">Name</label>
-                            <input name="name" class="form-control" placeholder="Name" type="text" ng-model="uformname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z\s]*$/"  />
+                            <input name="name" class="form-control" placeholder="Name" type="text" data-ng-minlength="2" ng-model="authorObject.name"
+                                   ng-model-options="{ updateOn: 'blur' }" ng-required="true"/>
                         </div>
-                        <br />
+                        <br/>
                         <br>
                         <br>
                         <br>
                         <div class="col-xs-4">
                             <label for="lastname">Last name</label>
 
-                            <input name="lastname" type="text" class="form-control" placeholder="Last name" ng-model="uformlastname" ng-model-options="{ updateOn: 'blur' }" ng-pattern="/^[a-zA-Z]*$/" />
+                            <input name="lastname" type="text" class="form-control" placeholder="Last name"
+                                   ng-model="authorObject.lastname" ng-model-options="{ updateOn: 'blur' }" data-ng-minlength="2" ng-required="true"/>
                         </div>
 
                         <div class="col-xs-4">
-                            <label for="authority">Authority</label><br />
-                            <input name="authority" type="url" class="form-control" placeholder="Authority" ng-model="uformauthority" ng-model-options="{ updateOn: 'blur' }" ng-required="true"/>
+                            <label for="authority">Authority</label><br/>
+                            <input name="authority" type="text" class="form-control" placeholder="Authority"
+                                   ng-model="authorObject.authority" ng-model-options="{ updateOn: 'blur' }"
+                                   ng-required="true" data-ng-minlength="2"/>
                         </div>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <div class="col-xs-4">
-                            <input type="submit" class="btn btn-sm btn-info" ng-click="updateauthor3(datasource,authorObject)" ng-disabled="updateauthorForm.$invalid" value="Update"/>
-                            <input type="reset" class="btn btn-sm btn-info" ng-click="reset(updateauthorForm)" value="Clear" />
-                            <input type="button" class="btn btn-sm btn-info" ng-click="cancel()" value="Cancel" >
+                            <input type="submit" class="btn btn-sm btn-info"
+                                   ng-click="updateauthor3(datasource,authorObject)"
+                                   ng-disabled="updateauthorForm.$invalid" value="Update"/>
+                            <input type="reset" class="btn btn-sm btn-info" ng-click="reset(updateauthorForm)"
+                                   value="Clear"/>
+                            <input type="button" class="btn btn-sm btn-info" ng-click="cancel()" value="Cancel">
                         </div>
                     </div>
                 </form>
@@ -248,32 +275,33 @@
         <div class="deleteAuthor2" ng-show="deleteauthor">
             <form name="delform" class="form-horizontal" novalidate>
                 <div class="col-xs-4">
-                        <label for="URI">URI</label>
-                        <input name="uri" class="form-control" type="url" ng-model="delformuri" ng-model-options="{ updateOn: 'blur' }" ng-required="true" />
-                    </div>
+                    <label for="URI">URI</label>
+                    <input name="uri" class="form-control" type="url" ng-model="delformuri"
+                           ng-model-options="{ updateOn: 'blur' }" ng-required="true"/>
+                </div>
                 <br/>
                 <br/>
                 <br/>
                 <br/>
                 <div class="col-xs-4">
-                    <input type="submit" class="btn btn-sm btn-danger" ng-click="deleteAuthor2(datasource)" value="Delete" ng-disabled="delform.$invalid" />
-                    <input type="reset" class="btn btn-sm btn-info" ng-click="reset(delform)" value="Clear" />
+                    <input type="submit" class="btn btn-sm btn-danger" ng-click="deleteAuthor2(datasource)"
+                           value="Delete" ng-disabled="delform.$invalid"/>
+                    <input type="reset" class="btn btn-sm btn-info" ng-click="reset(delform)" value="Clear"/>
                 </div>
             </form>
-<br />
+            <br/>
 
 
-
+        </div>
     </div>
-    </div>
 
-    </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-2.2.3.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jj.js"></script>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-2.2.3.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jj.js"></script>
 
 
-    </body>
-    </html>
+</body>
+</html>
