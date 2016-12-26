@@ -81,13 +81,13 @@
                 <tr ng-repeat="name in datasourcename">
                     <td>{{name}}</td>
                     <td>
-                        <a ng-click="addAuthor($index)" class="btn btn-sm btn-info" type="button">
+                        <a ng-click="addAuthor($index)" class="btn btn-sm btn-info" title="Add authority" type="button">
                             <span class="glyphicon glyphicon-plus-sign"></span>
                         </a>
-                        <a ng-click="findAuthor($index)" class="btn btn-sm btn-info" type="button">
+                        <a ng-click="findAuthor($index)" class="btn btn-sm btn-info" title="Find authority" type="button">
                             <span class="glyphicon glyphicon-search"></span>
                         </a>
-                        <a ng-click="deleteAuthor($index)" class="btn btn-sm btn-danger" type="button">
+                        <a ng-click="deleteAuthor($index)" class="btn btn-sm btn-danger" title="Delete authority" type="button">
                             <span class="glyphicon glyphicon-minus-sign"></span>
                         </a>
                     </td>
@@ -158,13 +158,13 @@
                     <div class="col-xs-4">
                         <label for="URI">URI</label><br/>
                         <input name="URI" type="url" class="form-control" placeholder="URI" ng-model="fformuri"
-                               ng-model-options="{ updateOn: 'blur' }"/>
+                               ng-model-options="{ updateOn: 'blur' }" data-ng-required="!(fformname.length || fformlastname.length || fformauthority.length)"/>
                     </div>
 
                     <div class="col-xs-4">
                         <label for="name">Name</label>
                         <input name="name" class="form-control" placeholder="Name" type="text" ng-model="fformname"
-                               ng-model-options="{ updateOn: 'blur' }"/>
+                               ng-model-options="{ updateOn: 'blur' }" data-ng-required="!(fformuri.length || fformlastname.length || fformauthority.length)"/>
                     </div>
                     <br/>
                     <br>
@@ -174,14 +174,14 @@
                         <label for="lastname">Last name</label>
 
                         <input name="lastname" type="text" class="form-control" placeholder="Last name"
-                               ng-model="fformlastname" ng-model-options="{ updateOn: 'blur' }"/>
+                               ng-model="fformlastname" ng-model-options="{ updateOn: 'blur' }" data-ng-required="!(fformuri.length || fformname.length || fformauthority.length)"/>
                     </div>
 
 
                     <div class="col-xs-4">
                         <label for="authority">Authority</label><br/>
                         <input name="authority" type="text" class="form-control" placeholder="Authority"
-                               ng-model="fformauthority" ng-model-options="{ updateOn: 'blur' }"/>
+                               ng-model="fformauthority" ng-model-options="{ updateOn: 'blur' }" data-ng-required="!(fformuri.length || fformname.length || fformlastname.length)"/>
                     </div>
                     <br/>
                     <br/>
