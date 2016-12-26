@@ -2,7 +2,8 @@ angular.module('myAppuser',[])
     .controller('myUserController',['$scope','$http',
            function ($scope,$http) {
 
-
+        var ENDPOINT = 'http://localhost:8082/api';
+               
         $scope.finduser=function(){
             $scope.finduserform=true;
                        $scope.userform=false;
@@ -38,7 +39,7 @@ angular.module('myAppuser',[])
                        alert("The passwords did not match")
                        return false;
                    }
-                   $http.post('http://localhost:8082/api/user/new?name=' + $scope.formname + '&lastname=' + $scope.formlastname + '&password=' + $scope.formpassword + '&username=' + $scope.formusername + '&role=' + $scope.formrole).success(function (a) {
+                   $http.post(ENDPOINT+'/user/new?name=' + $scope.formname + '&lastname=' + $scope.formlastname + '&password=' + $scope.formpassword + '&username=' + $scope.formusername + '&role=' + $scope.formrole).success(function (a) {
 
                        // alert(JSON.stringify($scope.a));
                        alert(a.event);
@@ -64,7 +65,7 @@ angular.module('myAppuser',[])
                        return false;
                    }
 
-                   $http.get('http://localhost:8082/api/user/findbyname?name='+$scope.fformname).
+                   $http.get(ENDPOINT+'/user/findbyname?name='+$scope.fformname).
                    success(function (data) {
                        $scope.findeddata=data;
                        if ($scope.findeddata.length>0){
@@ -89,7 +90,7 @@ angular.module('myAppuser',[])
                    }
 
 
-                   $http.put('http://localhost:8082/api/user/update?newpassword='+$scope.uformpassword+'&username='+userObject.username).
+                   $http.put(ENDPOINT+'/user/update?newpassword='+$scope.uformpassword+'&username='+userObject.username).
                    success(function (a) {
                        alert(a.event);
                        // if (a==200){
@@ -114,7 +115,7 @@ angular.module('myAppuser',[])
                    })
                }
                $scope.deleteAuthor3=function (recivedusername) {
-                   $http.delete('http://localhost:8082/api/user/delete?&username='+recivedusername.username).
+                   $http.delete(ENDPOINT+'/user/delete?&username='+recivedusername.username).
                    success(function (a) {
                        alert(a.event);
                        // if (a==200){
