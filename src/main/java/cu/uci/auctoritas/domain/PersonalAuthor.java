@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity
-@XmlRootElement(name = "author", namespace = "aaa")
 public class PersonalAuthor {
 
     @Id
@@ -16,14 +15,6 @@ public class PersonalAuthor {
     private String lastname;
     private String authority;
 
-//    public PersonalAuthor(String uri, String name, String lastname, String authority) {
-//        this.uri = uri;
-//        this.name = name;
-//        this.lastname = lastname;
-//        this.authority = authority;
-//    }
-//
-//
     @XmlElement
     public String getName() {
         return name;

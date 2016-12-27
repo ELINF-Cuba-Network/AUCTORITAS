@@ -8,11 +8,7 @@ import cu.uci.auctoritas.source.mapper.*;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
-import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -13,7 +13,7 @@ import java.util.List;
 
 
 @Service
-public class LocalAuthorsNEWService {
+public class LocalAuthorsService {
     @Autowired
     private DatasourceService datasourceService;
     @Autowired
@@ -25,7 +25,7 @@ public class LocalAuthorsNEWService {
             List<Datasource> ds = datasourceService.getDatasources(clazz);
             String table = extractTable(ds.get(datasourceindex).getMapped());
             authorRepository.insertAuthor(uri, name, lastname, authority, ds.get(datasourceindex), clazz, table);
-            event.setEvent("Author Created");
+            event.setEvent("Authority created successfully");
             return event;
         }catch (Exception e){
             String s=e.getCause().getMessage().toString();
