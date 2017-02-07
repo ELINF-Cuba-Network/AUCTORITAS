@@ -1,8 +1,6 @@
 package cu.uci.auctoritas;
 
-/**
- * Created by bichos on 31/05/16.
- */
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -48,10 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                  .and()
                  .httpBasic()
                  .realmName("Auctoritas").and()
-//                 .requiresChannel()
-//                 .antMatchers("/api/user/**").requiresSecure()
-//                 .antMatchers("/api/localauthors/**").requiresSecure()
-//                 .and()
                  .rememberMe()
                  .tokenValiditySeconds(14400)
                  .key("auctoritasKey")
@@ -65,19 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 
      }
-    @Autowired
-        public void configureGlobalCHECK(AuthenticationManagerBuilder auth) throws Exception {
 
-//            DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//            dataSource.setDriverClassName("org.postgresql.Driver");
-//            dataSource.setUrl("jdbc:postgresql://localhost/users");
-//            dataSource.setUsername("postgres");
-//            dataSource.setPassword("1234567890");
-//
-//            auth
-//                    .jdbcAuthentication().dataSource(dataSource)
-//                    .usersByUsernameQuery("select * from users where username=?")
-//                    .authoritiesByUsernameQuery("select * from user_roles where username=?");
-        }
 
 }

@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by bichos on 14/05/16.
- */
+
 @RestController
 @RequestMapping("api/user")
 

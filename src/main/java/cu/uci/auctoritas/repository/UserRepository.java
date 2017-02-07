@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by bichos on 14/05/16.
- */
+
 @Repository
 public class UserRepository {
 
@@ -20,7 +18,6 @@ public class UserRepository {
     private String table;
 
 
-    //private final String QUERY_UPDATE = "UPDATE %s SET ( uri, nombre, apellidos, autoridad) = ('%s', '%s', '%s', '%s') where uri IN (SELECT uri FROM %s WHERE uri ilike '%%s%' )";
     @Autowired
     JdbcTemplate jdbcTemplate;
 
@@ -30,10 +27,6 @@ public class UserRepository {
         String sql = "INSERT INTO " + table + " (name, lastname, password, username, role) VALUES ( '" + userInfo.getName() + "', '" + userInfo.getLastname() + "', '" + userInfo.getPassword() + "', '" + userInfo.getUsername() + "', '"+userInfo.getRole()+"')";
 
         jdbcTemplate.execute(sql);
-//            jdbcTemplate.query(
-//                    "SELECT id, first_name, last_name FROM customers WHERE first_name = ?", new Object[] { "Josh" },
-//                    (rs, rowNum) -> new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name"))
-//            )
     }
 
     public List<UserInfo> getByname(String name) {

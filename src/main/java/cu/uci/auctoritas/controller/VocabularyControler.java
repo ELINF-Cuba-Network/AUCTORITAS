@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * Created by bichos on 10/05/16.
- */
+
 @RestController
 @RequestMapping("/api/vocabulary")
 

@@ -9,9 +9,7 @@ import javax.persistence.Entity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 public class PersonalAuthorRowMapper implements EntityMapper<PersonalAuthor> {
 
     final String FIELD_PERSON = "Person";

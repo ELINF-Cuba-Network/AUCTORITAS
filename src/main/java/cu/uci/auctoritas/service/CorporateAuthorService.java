@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by bichos on 8/05/16.
- */
+
 @Service
 public class CorporateAuthorService {
     @Autowired

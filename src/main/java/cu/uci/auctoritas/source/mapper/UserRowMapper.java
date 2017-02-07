@@ -6,9 +6,7 @@ import org.apache.jena.query.QuerySolution;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by bichos on 3/06/16.
- */
+
 public class UserRowMapper implements EntityMapper {
     final String FIELD_NAME = "name";
     final String FIELD_LAST_NAME = "lastname";

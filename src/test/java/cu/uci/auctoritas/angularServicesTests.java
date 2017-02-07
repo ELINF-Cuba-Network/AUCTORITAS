@@ -15,9 +15,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
 
-/**
- * Created by bichos on 30/05/16.
- */
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = AuctoritasApplication.class)
 public class angularServicesTests {

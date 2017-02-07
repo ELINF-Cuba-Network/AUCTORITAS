@@ -8,9 +8,7 @@ import org.apache.jena.rdf.model.RDFNode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by bichos on 10/05/16.
- */
+
 public class AuthorizedTermRowMapper implements EntityMapper {
 
     final String FIELD_TERM = "prefLabel";

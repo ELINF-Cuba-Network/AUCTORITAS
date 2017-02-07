@@ -1,8 +1,6 @@
 package cu.uci.auctoritas.domain;
 
-/**
- * Created by bichos on 7/06/16.
- */
+
 public class Event {
     private String event;
 

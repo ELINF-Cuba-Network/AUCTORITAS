@@ -1,8 +1,6 @@
 package cu.uci.auctoritas.source;
 
-/**
- * Created by bichos on 4/05/16.
- */
+
 public class Datasource {
 
     private String datasource;

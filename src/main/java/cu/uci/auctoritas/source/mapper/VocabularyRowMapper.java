@@ -7,9 +7,7 @@ import org.apache.jena.query.QuerySolution;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by bichos on 10/05/16.
- */
+
 public class VocabularyRowMapper implements EntityMapper<Vocabulary> {
 
     final String FIELD_VOCABULARY= "ds";

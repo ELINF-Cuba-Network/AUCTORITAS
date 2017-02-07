@@ -7,9 +7,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * Created by bichos on 31/05/16.
- */
+
 @EnableWebMvc
 @ComponentScan("org.springframework.security.samples.mvc")
 public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
