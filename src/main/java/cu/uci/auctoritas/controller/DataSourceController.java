@@ -45,4 +45,26 @@ public class DataSourceController {
         }
         return finaldatasources;
     }
+
+    @RequestMapping(value = "/getPersonalAuthorityDatasources", method = RequestMethod.GET)
+    public List<String> getPersonalAuthoritiesDatasources(){
+        List<Datasource> dataSources = datasourceService.getDatasources(PersonalAuthor.class);
+        List<String> dataSourceIdentifiers = new ArrayList<>();
+
+        for (Datasource datasource : dataSources)
+            dataSourceIdentifiers.add(datasource.getDatasource());
+
+        return dataSourceIdentifiers;
+    }
+
+    @RequestMapping(value = "/getCorporateAuthorityDatasources", method = RequestMethod.GET)
+    public List<String> getCorporateAuthoritiesDatasources(){
+        List<Datasource> dataSources = datasourceService.getDatasources(CorporateAuthor.class);
+        List<String> dataSourceIdentifiers = new ArrayList<>();
+
+        for (Datasource datasource : dataSources)
+            dataSourceIdentifiers.add(datasource.getDatasource());
+
+        return dataSourceIdentifiers;
+    }
 }
