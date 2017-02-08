@@ -53,7 +53,7 @@ public class AuctoritasApplicationTests {
         //String expResult = new ArrayList<>();
 		String expResult = "Flavia";
 
-        List<PersonalAuthor> result = authorController.getPersonalAuthor("flavia","gonzalez",1,100);
+        List<PersonalAuthor> result = authorController.getPersonalAuthor("flavia","gonzalez",1,100, null);
 		String res=result.get(0).getName();
         assertEquals(expResult, res);
 	}
@@ -61,7 +61,7 @@ public class AuctoritasApplicationTests {
 	public void corporateAuthorTest() {
 		System.out.println("authors");
 		String expResult = "Universidad de Ciencias Informáticas (UCI), Cuba@es-ES";
-		List<CorporateAuthor> result = authorController.getCorporateAuthor("universidad","infor", 1, 100);
+		List<CorporateAuthor> result = authorController.getCorporateAuthor("universidad","infor", 1, 100, null);
 		String res=result.get(0).getName();
 		assertEquals(expResult, res);
 	}

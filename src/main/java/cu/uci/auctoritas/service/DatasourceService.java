@@ -44,7 +44,7 @@ public class DatasourceService {
     private String authorizedTermQuery;
 
 
-    public <T> List<T> getEntities(String name, String lastname, Class<T> clazz) {
+    public <T> List<T> getEntities(String name, String lastname, Class<T> clazz, String dataSourceName) {
         name = TextUtils.isEmpty(name) ? "" : name;
         lastname = TextUtils.isEmpty(lastname) ? "" : lastname;
         if ((name.isEmpty()) && (lastname.isEmpty()))
@@ -52,18 +52,21 @@ public class DatasourceService {
         List<Datasource> datasources = getDatasources(clazz);
         List<T> entities = new ArrayList<>();
         for (Datasource ds : datasources) {
-            String query = ds.getMapped();
-            query = query.replace("param1", name);
-            query = query.replace("param2", lastname);
 
-            DatasourceResolver<T> resolver = getDatasourceResolver(ds);
-            if (resolver == null) continue;
+            if ((dataSourceName.isEmpty()) || (ds.getDatasource().equals(dataSourceName))) {
+                String query = ds.getMapped();
+                query = query.replace("param1", name);
+                query = query.replace("param2", lastname);
 
-            try {
-                entities.addAll(resolver
-                        .getElementByDynamicQuery(query, ds.getEndpoint(), ds.getUsername(), ds.getPassword(), clazz));
-            } catch (Exception e) {
-                e.printStackTrace();
+                DatasourceResolver<T> resolver = getDatasourceResolver(ds);
+                if (resolver == null) continue;
+
+                try {
+                    entities.addAll(resolver
+                            .getElementByDynamicQuery(query, ds.getEndpoint(), ds.getUsername(), ds.getPassword(), clazz));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         return entities;

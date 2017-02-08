@@ -18,8 +18,8 @@ public class PersonalAuthorService {
     @Autowired
     private DatasourceService datasourceService;
 
-    public List<PersonalAuthor> getPersonalAuthor(String name, String lastname, Integer start, Integer limit){
-        List<PersonalAuthor> personalAuthors= datasourceService.getEntities(name, lastname, PersonalAuthor.class);
+    public List<PersonalAuthor> getPersonalAuthor(String name, String lastname, Integer start, Integer limit, String dataSourceName){
+        List<PersonalAuthor> personalAuthors= datasourceService.getEntities(name, lastname, PersonalAuthor.class, dataSourceName);
         List<PersonalAuthor> finalList= new ArrayList<>();
 
         if ((null == start) || (start==0)){

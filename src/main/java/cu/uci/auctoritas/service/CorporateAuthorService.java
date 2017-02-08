@@ -13,8 +13,8 @@ public class CorporateAuthorService {
     @Autowired
     private DatasourceService datasourceService;
 
-    public List<CorporateAuthor> getCorporateAuthor(String name, String label, int start, int limit) {
-       List<CorporateAuthor> corporateAuthors=datasourceService.getEntities(name, label, CorporateAuthor.class);
+    public List<CorporateAuthor> getCorporateAuthor(String name, String label, int start, int limit, String dataSourceName) {
+       List<CorporateAuthor> corporateAuthors=datasourceService.getEntities(name, label, CorporateAuthor.class, dataSourceName);
         List<CorporateAuthor> finalList= new ArrayList<>();
         if (start==0){
             start=1;

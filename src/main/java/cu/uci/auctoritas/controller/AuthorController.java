@@ -21,14 +21,14 @@ public class AuthorController {
     private CorporateAuthorService corporateAuthorService;
 
     @RequestMapping(value = "/personal", method = RequestMethod.GET,
-            produces = {MediaType.APPLICATION_XML_VALUE}
+            produces = {MediaType.APPLICATION_JSON_VALUE}
     )
     @ResponseBody
-    public List<PersonalAuthor> getPersonalAuthor(@RequestParam(required = false) String name, @RequestParam(required = false) String lastname, @RequestParam(required = false) Integer start, @RequestParam(required = false) Integer limit){
-        return personalAuthorService.getPersonalAuthor(name.trim(), lastname.trim(),start,limit);
+    public List<PersonalAuthor> getPersonalAuthor(@RequestParam(required = false) String name, @RequestParam(required = false) String lastname, @RequestParam(required = false) Integer start, @RequestParam(required = false) Integer limit, @RequestParam(required = false) String dataSourceName){
+        return personalAuthorService.getPersonalAuthor(name.trim(), lastname.trim(),start,limit, dataSourceName);
     }
-    @RequestMapping(value = "/corporate",method = RequestMethod.GET, produces = {MediaType.APPLICATION_XML_VALUE})
-    public @ResponseBody List<CorporateAuthor> getCorporateAuthor(@RequestParam(required = false) String name, @RequestParam(required = false) String label, @RequestParam int start, @RequestParam int limit){
-        return corporateAuthorService.getCorporateAuthor(name.trim(), label.trim(), start, limit);
+    @RequestMapping(value = "/corporate",method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public @ResponseBody List<CorporateAuthor> getCorporateAuthor(@RequestParam(required = false) String name, @RequestParam(required = false) String label, @RequestParam int start, @RequestParam int limit, @RequestParam(required = false) String dataSourceName){
+        return corporateAuthorService.getCorporateAuthor(name.trim(), label.trim(), start, limit, dataSourceName);
     }
 }
