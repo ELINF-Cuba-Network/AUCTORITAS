@@ -21,6 +21,7 @@ public class DatasourceRESTResolver<T> implements DatasourceResolver<T> {
         List<T> result = new ArrayList<>();
 
         QueryExecution execution = new QueryEngineHTTP(endpoint, query);
+
         ResultSet qr = execution.execSelect();
 
         EntityMapper mapper = getRowMapper(clazz);

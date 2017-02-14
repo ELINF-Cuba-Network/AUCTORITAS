@@ -3,11 +3,7 @@ package cu.uci.auctoritas.service;
 import cu.uci.auctoritas.domain.AuthorizedTerm;
 import cu.uci.auctoritas.domain.CorporateAuthor;
 import cu.uci.auctoritas.domain.PersonalAuthor;
-import cu.uci.auctoritas.domain.Vocabulary;
-import cu.uci.auctoritas.source.Datasource;
-import cu.uci.auctoritas.source.DatasourceJDBCResolver;
-import cu.uci.auctoritas.source.DatasourceRESTResolver;
-import cu.uci.auctoritas.source.DatasourceResolver;
+import cu.uci.auctoritas.source.*;
 import cu.uci.auctoritas.util.OntologyUtil;
 import org.apache.http.util.TextUtils;
 import org.apache.jena.query.QueryExecution;
@@ -29,6 +25,7 @@ public class DatasourceService {
     final String FIELD_DS = "ds";
     final String FIELD_USER = "user";
     final String FIELD_PASSWORD = "password";
+    final String FIELD_TYPE = "type";
 
 
     @Value("${virtuoso.virtuosoEndPoint}")
@@ -74,12 +71,15 @@ public class DatasourceService {
 
     public <T> DatasourceResolver<T> getDatasourceResolver(Datasource ds) {
         DatasourceResolver<T> resolver = null;
-        switch (ds.getEndpoint().substring(0, 4)) {
+        switch (ds.getType()) {
             case "jdbc":
                 resolver = new DatasourceJDBCResolver<T>();
                 break;
             case "http":
                 resolver = new DatasourceRESTResolver<T>();
+                break;
+            case "orcid":
+                resolver = new DatasourceORCIDResolver<T>();
                 break;
         }
         return resolver;
@@ -116,6 +116,7 @@ public class DatasourceService {
         ds.setDatasource(OntologyUtil.clean(data.get(FIELD_DS).asNode().toString()));
         ds.setUsername(OntologyUtil.clean(data.get(FIELD_USER).asNode().toString()));
         ds.setPassword(OntologyUtil.clean(data.get(FIELD_PASSWORD).asNode().toString()));
+        ds.setType(OntologyUtil.clean(data.get(FIELD_TYPE).asNode().toString()));
         return ds;
     }
 }
