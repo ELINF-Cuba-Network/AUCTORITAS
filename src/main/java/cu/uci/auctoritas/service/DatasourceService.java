@@ -50,7 +50,7 @@ public class DatasourceService {
         List<T> entities = new ArrayList<>();
         for (Datasource ds : datasources) {
 
-            if ((dataSourceName.isEmpty()) || (ds.getDatasource().equals(dataSourceName))) {
+            if ((null == dataSourceName) || (dataSourceName.isEmpty()) || (ds.getDatasource().equals(dataSourceName))) {
                 String query = ds.getMapped();
                 query = query.replace("param1", name);
                 query = query.replace("param2", lastname);
