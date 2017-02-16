@@ -28,7 +28,13 @@ public class AuthorController {
         return personalAuthorService.getPersonalAuthor(name.trim(), lastname.trim(),start,limit, dataSourceName);
     }
     @RequestMapping(value = "/corporate",method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public @ResponseBody List<CorporateAuthor> getCorporateAuthor(@RequestParam(required = false) String name, @RequestParam(required = false) String label, @RequestParam int start, @RequestParam int limit, @RequestParam(required = false) String dataSourceName){
-        return corporateAuthorService.getCorporateAuthor(name.trim(), label.trim(), start, limit, dataSourceName);
+    public
+    @ResponseBody
+    List<CorporateAuthor> getCorporateAuthor(@RequestParam(required = false) String name, @RequestParam(required = false) String label, @RequestParam(required = false) Integer start, @RequestParam(required = false) Integer limit, @RequestParam(required = false) String dataSourceName) {
+        if (null != name)
+            name = name.trim();
+        if (null != label)
+            label = label.trim();
+        return corporateAuthorService.getCorporateAuthor(name, label, start, limit, dataSourceName);
     }
 }
