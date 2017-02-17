@@ -1,7 +1,6 @@
 package cu.uci.auctoritas.service;
 
 import cu.uci.auctoritas.domain.AuthorizedTerm;
-import cu.uci.auctoritas.domain.Vocabulary;
 import cu.uci.auctoritas.source.Datasource;
 import cu.uci.auctoritas.source.DatasourceRESTResolver;
 import cu.uci.auctoritas.source.DatasourceResolver;
@@ -30,8 +29,6 @@ public class ControledTermsService {
         modifyQuery(term, lang, datasources);
 
         for (int i = 0; i < datasources.size(); i++) {
-            String query2 = datasources.get(i).getMapped().replace("altLabel", "prefLabel");
-            entities.addAll(getAuthorizedTerms(vocabulary, clazz, datasources, i, query2));
             entities.addAll(getAuthorizedTerms(vocabulary, clazz, datasources, i, datasources.get(i).getMapped()));
         }
         clearBylanguage(lang, entities);

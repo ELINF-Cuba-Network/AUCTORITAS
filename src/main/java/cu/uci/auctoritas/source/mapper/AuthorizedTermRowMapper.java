@@ -1,9 +1,9 @@
 package cu.uci.auctoritas.source.mapper;
 
 import cu.uci.auctoritas.domain.AuthorizedTerm;
+import cu.uci.auctoritas.domain.Relation;
 import cu.uci.auctoritas.util.OntologyUtil;
 import org.apache.jena.query.QuerySolution;
-import org.apache.jena.rdf.model.RDFNode;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +14,8 @@ public class AuthorizedTermRowMapper implements EntityMapper {
     final String FIELD_TERM = "prefLabel";
     final String FIELD_IDENTIFIER = "s";
     final String FIELD_VOCABULARY_URI = "scheme";
+    final String FIELD_BROADER_TERM = "broaderTermLabel";
+    final String FIELD_NARROWER_TERM = "narrowerTermLabel";
 
     @Override
     public Object mapRow(QuerySolution result) {
@@ -30,6 +32,21 @@ public class AuthorizedTermRowMapper implements EntityMapper {
         String uri = OntologyUtil.clean(node);
 
         authorizedTerm.setVocabulary_uri(uri);
+
+        if (null != result.get(FIELD_BROADER_TERM)) {
+            AuthorizedTerm broaderTerm = new AuthorizedTerm();
+            broaderTerm.setTerm(result.get(FIELD_BROADER_TERM).asNode().toString());
+            Relation broaderTermRelation = new Relation(Relation.RELATION_TYPE_BROADER_TERM, broaderTerm);
+            authorizedTerm.addRelatedConcept(broaderTermRelation);
+        }
+
+        if (null != result.get(FIELD_NARROWER_TERM)) {
+            AuthorizedTerm narrowerTerm = new AuthorizedTerm();
+            narrowerTerm.setTerm(result.get(FIELD_NARROWER_TERM).asNode().toString());
+            Relation narrowerTermRelation = new Relation(Relation.RELATION_TYPE_NARROWER_TERM, narrowerTerm);
+            authorizedTerm.addRelatedConcept(narrowerTermRelation);
+        }
+
         return authorizedTerm;
     }
 

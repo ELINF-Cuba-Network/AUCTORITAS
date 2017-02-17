@@ -27,9 +27,22 @@ public class DatasourceRESTResolver<T> implements DatasourceResolver<T> {
         EntityMapper mapper = getRowMapper(clazz);
 
         while (qr.hasNext())
-            result.add((T) mapper.mapRow(qr.next()));
+            addResult(result, (T) mapper.mapRow(qr.next()));
 
         return result;
+    }
+
+    private void addResult(List<T> results, T element) {
+        if ((element instanceof AuthorizedTerm) && (!results.isEmpty())) {
+            for (T result : results) {
+                if (result instanceof AuthorizedTerm) {
+                    if (((AuthorizedTerm) result).getVocabulary_uri().equals(((AuthorizedTerm) element).getVocabulary_uri()))
+                        ((AuthorizedTerm) result).setRelatedConcepts(((AuthorizedTerm) element).getRelatedConcepts());
+                }
+            }
+
+        } else
+            results.add(element);
     }
 
     @Override

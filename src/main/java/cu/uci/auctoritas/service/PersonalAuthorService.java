@@ -1,13 +1,9 @@
 package cu.uci.auctoritas.service;
 
 import cu.uci.auctoritas.domain.PersonalAuthor;
-import cu.uci.auctoritas.repository.PersonalAuthorRepository;
-import cu.uci.auctoritas.source.DatasourceJDBCResolver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
