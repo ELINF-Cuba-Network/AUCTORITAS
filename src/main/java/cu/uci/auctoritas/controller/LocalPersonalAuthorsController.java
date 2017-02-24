@@ -21,7 +21,7 @@ public class LocalPersonalAuthorsController {
 
     @RequestMapping(value = "/personalauthor/new", method = RequestMethod.POST)
     public<T> Event postpersonalAuthor(@RequestParam String name, @RequestParam String lastname, @RequestParam String authority, @RequestParam String uri, @RequestParam int datasourceindex) throws Exception {
-        return localAuthorsService.post(uri,name,lastname,authority,datasourceindex,PersonalAuthor.class);
+        return localAuthorsService.post(uri, name, lastname, authority, PersonalAuthor.class);
   }
 
     @RequestMapping(value = "/personalauthor/findby", method = RequestMethod.GET)
@@ -29,15 +29,15 @@ public class LocalPersonalAuthorsController {
 
         if ((((name==null)||name.isEmpty())&&((uri==null)||uri.isEmpty())&&((lastname==null)||lastname.isEmpty())&&((authority==null)||authority.isEmpty())))
             return null;
-        return localAuthorsService.getByID(uri,name,lastname,authority,datasourceindex,PersonalAuthor.class);
+        return localAuthorsService.getByID(uri, name, lastname, authority, PersonalAuthor.class);
     }
     @RequestMapping (value = "/personalauthor/update", method = RequestMethod.PUT)
     public Event update(@RequestParam (required = false) String name, @RequestParam(required = false) String lastname, @RequestParam(required = false) String authority, @RequestParam String uri, @RequestParam String newuri, @RequestParam int datasourceindex){
-        return localAuthorsService.update(uri,name,lastname,authority,datasourceindex,PersonalAuthor.class,newuri);
+        return localAuthorsService.update(uri, name, lastname, authority, PersonalAuthor.class, newuri);
    }
     @RequestMapping (value = "/personalauthor/delete", method = RequestMethod.DELETE)
     public Event delete(@RequestParam String uri, @RequestParam int datasourceindex){
-        return localAuthorsService.delete(uri, datasourceindex,PersonalAuthor.class);
+        return localAuthorsService.delete(uri, PersonalAuthor.class);
     }
 }
 

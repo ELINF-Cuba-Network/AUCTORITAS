@@ -22,7 +22,7 @@ public class LocalCorporateAuthorsController {
 
     @RequestMapping(value = "/corporateauthor/new", method = RequestMethod.POST)
     public<T> Event postpersonalAuthor(@RequestParam String name, @RequestParam String lastname, @RequestParam String authority, @RequestParam String uri, @RequestParam int datasourceindex) throws Exception {
-        return localAuthorsService.post(uri,name,lastname,authority,datasourceindex,CorporateAuthor.class);
+        return localAuthorsService.post(uri, name, lastname, authority, CorporateAuthor.class);
     }
 
     @RequestMapping(value = "/corporateauthor/findby", method = RequestMethod.GET)
@@ -30,16 +30,16 @@ public class LocalCorporateAuthorsController {
 
         if ((((name==null)||name.isEmpty())&&((uri==null)||uri.isEmpty())&&((lastname==null)||lastname.isEmpty())&&((authority==null)||authority.isEmpty())))
             return null;
-        return localAuthorsService.getByID(uri,name,lastname,authority,datasourceindex,CorporateAuthor.class);
+        return localAuthorsService.getByID(uri, name, lastname, authority, CorporateAuthor.class);
     }
     @RequestMapping (value = "/corporateauthor/update", method = RequestMethod.PUT)
     private Event update(@RequestParam (required = false) String name, @RequestParam(required = false) String lastname, @RequestParam(required = false) String authority, @RequestParam String uri, @RequestParam String newuri, @RequestParam int datasourceindex){
-       return localAuthorsService.update(uri,name,lastname,authority,datasourceindex,CorporateAuthor.class,newuri);
+        return localAuthorsService.update(uri, name, lastname, authority, CorporateAuthor.class, newuri);
     }
 
     @RequestMapping (value = "/corporateauthor/delete", method = RequestMethod.DELETE)
     private Event delete(@RequestParam String uri, @RequestParam int datasourceindex){
-        return localAuthorsService.delete(uri, datasourceindex,CorporateAuthor.class);
+        return localAuthorsService.delete(uri, CorporateAuthor.class);
     }
 }
 
