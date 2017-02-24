@@ -3,9 +3,7 @@ package cu.uci.auctoritas.source.mapper;
 import cu.uci.auctoritas.domain.PersonalAuthor;
 import cu.uci.auctoritas.util.OntologyUtil;
 import org.apache.jena.query.QuerySolution;
-import org.springframework.jdbc.core.RowMapper;
 
-import javax.persistence.Entity;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

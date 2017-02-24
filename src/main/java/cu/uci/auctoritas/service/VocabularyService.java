@@ -3,8 +3,6 @@ package cu.uci.auctoritas.service;
 import cu.uci.auctoritas.domain.AuthorizedTerm;
 import cu.uci.auctoritas.domain.Vocabulary;
 import cu.uci.auctoritas.source.Datasource;
-import cu.uci.auctoritas.source.DatasourceRESTResolver;
-import cu.uci.auctoritas.source.DatasourceResolver;
 import cu.uci.auctoritas.util.OntologyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

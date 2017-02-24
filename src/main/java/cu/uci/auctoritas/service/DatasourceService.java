@@ -75,6 +75,9 @@ public class DatasourceService {
             case "jdbc":
                 resolver = new DatasourceJDBCResolver<T>();
                 break;
+            case "local":
+                resolver = new DatasourceJDBCResolver<T>();
+                break;
             case "http":
                 resolver = new DatasourceRESTResolver<T>();
                 break;
@@ -95,6 +98,15 @@ public class DatasourceService {
         if (clazz == AuthorizedTerm.class)
             query = authorizedTermQuery;
         return getDatasources(query);
+    }
+
+    public <T> Datasource getLocalDatasource(Class<T> clazz) {
+        List<Datasource> datasources = getDatasources(clazz);
+
+        for (Datasource ds : datasources)
+            if (ds.getType().equals("local"))
+                return ds;
+        return null;
     }
 
     private <T> List<Datasource> getDatasources(String query) {
