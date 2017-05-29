@@ -1,4 +1,4 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngAnimate'])
     .controller('myController', ['$scope', '$http',
             function ($scope, $http) {
 
