@@ -32,8 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                  .anonymous()
                     .authorities("ROLE_ANONYMOUS")
                     .and()
+                    .headers()
+                    .and()
                     .authorizeRequests()
-                    .antMatchers("/browseConcepts.html").permitAll()
+                    .antMatchers("/browseconcepts.html").permitAll()
+                    .antMatchers("/css/**", "/bootstrap/**", "/fonts/**").permitAll()
                  .and()
                  .csrf().disable()
                  .authorizeRequests()
@@ -64,8 +67,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                  .invalidateHttpSession(true)
                  .and()
                  .exceptionHandling().accessDeniedPage("/403.html");
-
-
      }
 
 
