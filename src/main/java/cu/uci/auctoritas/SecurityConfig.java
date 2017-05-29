@@ -29,6 +29,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
      protected void configure(HttpSecurity http) throws Exception {
          http
+                 .anonymous()
+                    .authorities("ROLE_ANONYMOUS")
+                    .and()
+                    .authorizeRequests()
+                    .antMatchers("/browseConcepts.html").permitAll()
+                 .and()
                  .csrf().disable()
                  .authorizeRequests()
                  .antMatchers(HttpMethod.POST).authenticated()
@@ -39,7 +45,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                  .antMatchers("/api/term").permitAll()
                  .antMatchers("/api/datasource/getPersonalAuthorityDatasources").permitAll()
                  .antMatchers("/api/datasource/getCorporateAuthorityDatasources").permitAll()
-                 .antMatchers("/browseConcepts.html").permitAll()
                  .antMatchers("/usermanagement.html").hasAuthority("admin")
                  .anyRequest().authenticated()
                  .and()
