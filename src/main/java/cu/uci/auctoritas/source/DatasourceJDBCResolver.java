@@ -5,7 +5,7 @@ import cu.uci.auctoritas.domain.PersonalAuthor;
 import cu.uci.auctoritas.source.mapper.CorporativeAuthorRowMapper;
 import cu.uci.auctoritas.source.mapper.EntityMapper;
 import cu.uci.auctoritas.source.mapper.PersonalAuthorRowMapper;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
