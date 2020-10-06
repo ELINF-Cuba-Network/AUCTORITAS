@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableAutoConfiguration
 @EnableJpaRepositories(basePackages = "cu.uci.auctoritas.repository")
 public class AuctoritasApplication {
 

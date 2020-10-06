@@ -25,7 +25,7 @@ public class AuthorController {
     )
     @ResponseBody
     public List<PersonalAuthor> getPersonalAuthor(@RequestParam(required = false) String name, @RequestParam(required = false) String lastname, @RequestParam(required = false) Integer start, @RequestParam(required = false) Integer limit, @RequestParam(required = false) String dataSourceName){
-        return personalAuthorService.getPersonalAuthor(name.trim(), lastname.trim(),start,limit, dataSourceName);
+        return personalAuthorService.getPersonalAuthor((null != name)? name.trim() : name, (null != lastname)? lastname.trim() : lastname,start,limit, dataSourceName);
     }
     @RequestMapping(value = "/corporate",method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public
